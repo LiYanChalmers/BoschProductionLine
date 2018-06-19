@@ -3,3 +3,5 @@ data/*
 x_train_date_feats_0.pickle
 x_test_date_feats_0.pickle
 train_line_time.csv
+x_train_date_feats_*.pickle
+x_test_date_feats_*.pickle
