@@ -7,3 +7,5 @@ x_train_date_feats_*.pickle
 x_test_date_feats_*.pickle
 x_train_numeric_feat_*.pickle
 x_test_numeric_feat_*.pickle
+x_train_numeric_date_*.pickle
+x_test_numeric_date_*.pickle
