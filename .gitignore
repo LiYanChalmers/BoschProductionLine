@@ -9,4 +9,5 @@ x_train_numeric_feat_*.pickle
 x_test_numeric_feat_*.pickle
 x_train_numeric_date_*.pickle
 x_test_numeric_date_*.pickle
-x_test_numeric_date_0.zip
+x_test_numeric_date_*.zip
+x_train_numeric_date_*.zip
