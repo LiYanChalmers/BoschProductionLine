@@ -10,4 +10,4 @@
 module load anaconda3
 source activate kaggle
 
-python test.py
+python cv_test.py
