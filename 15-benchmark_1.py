@@ -20,9 +20,6 @@ import gc
 import warnings
 warnings.filterwarnings("ignore")
 
-%matplotlib inline
-
-
 import pickle
 
 def save_pickle(x, filename):
