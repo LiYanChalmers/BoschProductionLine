@@ -1,9 +1,19 @@
 Repeat 0
-Split 0, score = 0.172, n_best_trees = 2, total time = 0.310 min
-Split 1, score = 0.171, n_best_trees = 2, total time = 0.613 min
-Split 2, score = 0.152, n_best_trees = 2, total time = 0.920 min
+Split 0, score = 0.222, n_best_trees = 21, total time = 0.812 min
+Split 1, score = 0.235, n_best_trees = 78, total time = 3.053 min
+Split 2, score = 0.233, n_best_trees = 54, total time = 4.716 min
+Split 3, score = 0.216, n_best_trees = 14, total time = 5.352 min
+Split 4, score = 0.240, n_best_trees = 54, total time = 7.005 min
 Repeat 1
-Split 0, score = 0.152, n_best_trees = 2, total time = 1.219 min
-Split 1, score = 0.179, n_best_trees = 2, total time = 1.519 min
-Split 2, score = 0.172, n_best_trees = 2, total time = 1.830 min
-Score mean = 0.168, std = 0.009
+Split 0, score = 0.216, n_best_trees = 20, total time = 7.810 min
+Split 1, score = 0.240, n_best_trees = 86, total time = 10.247 min
+Split 2, score = 0.219, n_best_trees = 33, total time = 11.371 min
+Split 3, score = 0.237, n_best_trees = 56, total time = 13.074 min
+Split 4, score = 0.228, n_best_trees = 47, total time = 14.545 min
+Repeat 2
+Split 0, score = 0.237, n_best_trees = 43, total time = 15.933 min
+Split 1, score = 0.228, n_best_trees = 76, total time = 18.148 min
+Split 2, score = 0.227, n_best_trees = 38, total time = 19.391 min
+Split 3, score = 0.233, n_best_trees = 56, total time = 21.092 min
+Split 4, score = 0.227, n_best_trees = 35, total time = 22.267 min
+Score mean = 0.229, std = 0.007

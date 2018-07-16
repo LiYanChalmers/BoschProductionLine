@@ -5,6 +5,7 @@
 #SBATCH -e 15-benchmark_1.stderr
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=28
 #SBATCH --partition=standard
 #SBATCH --mem=64G
 

@@ -192,7 +192,7 @@ clf = XGBClassifier(max_depth=14, n_estimators=n_estimators,
 					
 
 clfs, scores, n_trees, running_time = cross_val_predict_skf_rm(clf, x_train_numeric, 
-    y_train, n_splits=5, n_repeats=3, random_state=42)
+    y_train, n_splits=5, n_repeats=3, random_state=42, verbose=False)
 	
 results = {'clfs': clfs, 'scores': scores, 'n_trees': n_trees, 'running_time': running_time}
 save_pickle(results, 'results_benchmark.pickle')
