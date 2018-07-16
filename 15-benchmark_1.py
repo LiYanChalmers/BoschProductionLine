@@ -14,8 +14,11 @@ from sklearn.metrics import roc_auc_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sys import getsizeof
+import sys
 import time
 import gc
+
+sys.stdout = open('15-benchmark_1.stdout', 'w')
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -124,9 +127,9 @@ def cross_val_predict_rskf(clf, x_train, y_train, n_splits=3,
         clfs.append(clf)
         running_time.append(time.time()-start_time)
         print('Split {}, score = {:.3f}, best_ntree_limit = {}, total time = {:.3f} min'.format(n, scores[n], 
-            clf.best_ntree_limit, sum(running_time)/60), file=open('15-benchmark_1.stdout', 'w') )
+            clf.best_ntree_limit, sum(running_time)/60))
 
-    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)), file=open('15-benchmark_1.stdout', 'w') )
+    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)))
     
     return clfs, scores, n_trees, running_time
 	
@@ -163,11 +166,9 @@ def cross_val_predict_skf_rm(clf, x_train, y_train, n_splits=3,
             clfs.append(clf)
             running_time.append(time.time() - start_time)
             print('Split {}, score = {:.3f}, n_best_trees = {}, total time = {:.3f} min'.format(n, 
-                scores[m*n_repeats+n], clf.best_ntree_limit, sum(running_time)/60), 
-				file=open('15-benchmark_1.stdout', 'w') )
+                scores[m*n_repeats+n], clf.best_ntree_limit, sum(running_time)/60))
 
-    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)), 
-		file=open('15-benchmark_1.stdout', 'w') )
+    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)))
     
     return clfs, scores, n_trees, running_time
 	

@@ -1,0 +1,9 @@
+Repeat 0
+Split 0, score = 0.172, n_best_trees = 2, total time = 0.310 min
+Split 1, score = 0.171, n_best_trees = 2, total time = 0.613 min
+Split 2, score = 0.152, n_best_trees = 2, total time = 0.920 min
+Repeat 1
+Split 0, score = 0.152, n_best_trees = 2, total time = 1.219 min
+Split 1, score = 0.179, n_best_trees = 2, total time = 1.519 min
+Split 2, score = 0.172, n_best_trees = 2, total time = 1.830 min
+Score mean = 0.168, std = 0.009
