@@ -1,0 +1,4 @@
+  File "15-benchmark_1.py", line 23
+    %matplotlib inline
+    ^
+SyntaxError: invalid syntax
