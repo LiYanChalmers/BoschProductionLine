@@ -124,9 +124,9 @@ def cross_val_predict_rskf(clf, x_train, y_train, n_splits=3,
         clfs.append(clf)
         running_time.append(time.time()-start_time)
         print('Split {}, score = {:.3f}, best_ntree_limit = {}, total time = {:.3f} min'.format(n, scores[n], 
-            clf.best_ntree_limit, sum(running_time)/60))
+            clf.best_ntree_limit, sum(running_time)/60), file=open('15-benchmark_1.stdout', 'w') )
 
-    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)))
+    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)), file=open('15-benchmark_1.stdout', 'w') )
     
     return clfs, scores, n_trees, running_time
 	
@@ -163,9 +163,11 @@ def cross_val_predict_skf_rm(clf, x_train, y_train, n_splits=3,
             clfs.append(clf)
             running_time.append(time.time() - start_time)
             print('Split {}, score = {:.3f}, n_best_trees = {}, total time = {:.3f} min'.format(n, 
-                scores[m*n_repeats+n], clf.best_ntree_limit, sum(running_time)/60))
+                scores[m*n_repeats+n], clf.best_ntree_limit, sum(running_time)/60), 
+				file=open('15-benchmark_1.stdout', 'w') )
 
-    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)))
+    print('Score mean = {:.3f}, std = {:.3f}'.format(np.mean(scores), np.std(scores)), 
+		file=open('15-benchmark_1.stdout', 'w') )
     
     return clfs, scores, n_trees, running_time
 	
@@ -181,7 +183,7 @@ y_train = x_train_numeric.Response
 x_train_numeric.drop(['Response'], axis=1, inplace=True)
 
 
-n_estimators = 5
+n_estimators = 2
 clf = XGBClassifier(max_depth=3, n_estimators=n_estimators, 
                     base_score=0.0058, n_jobs=-1, colsample_bytree=0.6,
                     min_child_weight=5, subsample=0.9,  
@@ -189,7 +191,7 @@ clf = XGBClassifier(max_depth=3, n_estimators=n_estimators,
 					
 
 clfs, scores, n_trees, running_time = cross_val_predict_skf_rm(clf, x_train_numeric, 
-    y_train, n_splits=5, n_repeats=3, random_state=42)
+    y_train, n_splits=3, n_repeats=2, random_state=42)
 	
 results = {'clfs': clfs, 'scores': scores, 'n_trees': n_trees, 'running_time': running_time}
 save_pickle(results, 'results_benchmark.pickle')
