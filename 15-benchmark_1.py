@@ -181,8 +181,8 @@ y_train = x_train_numeric.Response
 x_train_numeric.drop(['Response'], axis=1, inplace=True)
 
 
-n_estimators = 200
-clf = XGBClassifier(max_depth=14, n_estimators=n_estimators, 
+n_estimators = 5
+clf = XGBClassifier(max_depth=3, n_estimators=n_estimators, 
                     base_score=0.0058, n_jobs=-1, colsample_bytree=0.6,
                     min_child_weight=5, subsample=0.9,  
                     reg_lambda=4, silent=False, learning_rate=0.03)
