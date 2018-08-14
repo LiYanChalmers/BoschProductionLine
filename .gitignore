@@ -11,6 +11,5 @@ x_train_numeric_date_*.pickle
 x_test_numeric_date_*.pickle
 x_test_numeric_date_*.zip
 x_train_numeric_date_*.zip
-.DS_Store
-*.hdf
+benchmark_features/benchmark_8/numeric_all.hdf
 
