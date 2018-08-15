@@ -56,8 +56,8 @@ node_hpc = 1
 threads_hpc = 2
 mem_hpc = 64
 days_hpc = 0
-hours_hpc = 8
-minutes_hpc = 0
+hours_hpc = 0
+minutes_hpc = 10
 seconds_hpc = 0
 
 # XGBoost searching parameters

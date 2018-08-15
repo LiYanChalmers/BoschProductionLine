@@ -5,7 +5,7 @@
 #SBATCH -N 1
 #SBATCH -n 2
 #SBATCH -C MEM64
-#SBATCH -t 0-8:0:0
+#SBATCH -t 0-0:10:0
 #SBATCH -o hpopt_test_1.stdout
 #SBATCH -e hpopt_test_1.stderr
 module purge 
