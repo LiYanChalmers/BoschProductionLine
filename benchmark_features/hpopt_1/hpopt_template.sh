@@ -3,7 +3,7 @@
 #SBATCH -p hebbe
 #SBATCH -J hpopt_test_0
 #SBATCH -N 1
-#SBATCH -n 20
+#SBATCH -n 4
 #SBATCH -t 00:10:00
 #SBATCH -o hpopt_test_0.stdout
 #SBATCH -e hpopt_test_0.stderr
@@ -21,6 +21,6 @@ cd $TMPDIR
 
 python hpopt_test_0.py
 
-cp *.csv $SLURM_SUBMIT_DIR
-
+cp *.pickle $SLURM_SUBMIT_DIR
+cp *.gz $SLURM_SUBMIT_DIR
 # End script

@@ -28,7 +28,7 @@ from bosch_helper import *
 #%% Set parameter
 param_id = 65
 random_state = 431026
-param = {'subsample': 0.9, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 16, 'min_child_weight': 5, 'max_depth': 2, 'lambda': 3.5, 'eta': 0.035, 'colsample_bytree': 0.65, 'booster': 'dart', 'base_score': 0.0058, 'alpha': 0.25}
+param = {'subsample': 0.9, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 5, 'max_depth': 2, 'lambda': 3.5, 'eta': 0.035, 'colsample_bytree': 0.65, 'booster': 'dart', 'base_score': 0.0058, 'alpha': 0.25}
 np.random.seed(random_state)
 
 #%% Load data
