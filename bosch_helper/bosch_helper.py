@@ -21,6 +21,10 @@ from sys import getsizeof
 import time
 import gc
 
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import ParameterGrid
+from sklearn.model_selection import ParameterSampler
+
 from scipy import fftpack
 
 import warnings
