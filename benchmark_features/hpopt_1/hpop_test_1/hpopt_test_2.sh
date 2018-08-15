@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SBATCH -A C3SE2018-1-15
 #SBATCH -p hebbe
-#SBATCH -J hpopt_test_2
+#SBATCH -J ht_2
 #SBATCH -N 1
 #SBATCH -n 20
 #SBATCH -C MEM128

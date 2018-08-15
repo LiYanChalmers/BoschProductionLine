@@ -47,6 +47,7 @@ workdir = 'hpop_test_1'
 
 # file names 
 task_name = 'hpopt_test'
+task_name_short = 'ht'
 
 # cluster parameters
 project_hpc = 'C3SE2018-1-15' # 'C3SE2018-1-15' or 'C3SE407-15-3'
@@ -118,7 +119,7 @@ for param_id, param in enumerate(param_list):
     replace_lines = {
         1: "#SBATCH -A {}\n".format(project_hpc), 
         2: "#SBATCH -p {}\n".format(cluster_hpc),
-        3: "#SBATCH -J {}_{}\n".format(task_name, param_id),
+        3: "#SBATCH -J {}_{}\n".format(task_name_short, param_id),
         4: "#SBATCH -N {}\n".format(node_hpc),
         5: "#SBATCH -n {}\n".format(threads_hpc),  # only in testing
         6: "#SBATCH -C MEM{}\n".format(mem_hpc),
