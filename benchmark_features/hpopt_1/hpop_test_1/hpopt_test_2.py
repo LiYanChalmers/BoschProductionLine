@@ -28,12 +28,12 @@ from bosch_helper import *
 #%% Set parameter
 param_id = 2
 random_state = 788922
-param = {'subsample': 0.95, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 5.5, 'max_depth': 2, 'lambda': 3.5, 'eta': 0.035, 'colsample_bytree': 0.6, 'booster': 'gbtree', 'base_score': 0.0058, 'alpha': 0.25}
+param = {'subsample': 0.85, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 4.5, 'max_depth': 15, 'lambda': 4.5, 'eta': 0.025, 'colsample_bytree': 0.5, 'booster': 'dart', 'base_score': 0.0058, 'alpha': 0}
 np.random.seed(random_state)
 
 #%% Load data
 x = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
-x = x.iloc[:, :30]
+
 y_train = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'y_train')
 x_train = x.loc['train']
 x_test = x.loc['test']
@@ -41,9 +41,9 @@ x_test = x.loc['test']
 #%%
 cv_results, clfs, running_time = \
     cross_val_predict_skf_rm_xgb(param, x_train, y_train, 
-    num_boost_round=2,
-    n_splits=2,
-    n_repeats=2,
+    num_boost_round=80,
+    n_splits=5,
+    n_repeats=3,
     random_state=np.random.randint(10**6), 
     verbose_eval=True)
 results = {'clfs_cv': clfs, 'results_cv': cv_results, 'running_time_cv': running_time}
@@ -52,12 +52,12 @@ results = {'clfs_cv': clfs, 'results_cv': cv_results, 'running_time_cv': running
 dtrain = xgb.DMatrix(x_train, label=y_train)
 param['seed'] = np.random.randint(10**6)
 clf = xgb.train(param, dtrain, 
-    num_boost_round=2,
+    num_boost_round=60,
     feval=mcc_eval, evals=[(dtrain, 'train')])
 y_train_pred = clf.predict(dtrain)
 
 # Find best threshold 
-thresholds = np.linspace(0.01, 0.99, 2)
+thresholds = np.linspace(0.01, 0.99, 400)
 mcc = np.array([matthews_corrcoef(y_train, y_train_pred>thr) for thr in thresholds])
 best_threshold = thresholds[mcc.argmax()]
 

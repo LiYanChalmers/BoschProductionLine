@@ -34,13 +34,13 @@ np.random.seed(random_state)
 #%% Prepare parameters
 
 # CV parameters
-num_boost_round_cv = 2 # 80
-n_splits_cv = 2 # 5
-n_repeats_cv = 2 # 3
+num_boost_round_cv = 80 # 80
+n_splits_cv = 5 # 5
+n_repeats_cv = 3 # 3
 
 # Train parameters
-num_boost_round_train = 2 # 60
-num_mcc_points = 2 # 400
+num_boost_round_train = 60 # 60
+num_mcc_points = 400 # 400
 
 # directory of generated files
 workdir = 'hpop_test_1'
@@ -53,15 +53,16 @@ task_name_short = 'ht'
 project_hpc = 'C3SE2018-1-15' # 'C3SE2018-1-15' or 'C3SE407-15-3'
 cluster_hpc = 'hebbe' # 'hebbe', 'glenn'
 node_hpc = 1
-threads_hpc = 2
-mem_hpc = 64
+threads_hpc = 20
+mem_hpc = 128
 days_hpc = 0
-hours_hpc = 0
-minutes_hpc = 10
+hours_hpc = 8
+minutes_hpc = 0
 seconds_hpc = 0
 
 # XGBoost searching parameters
-param_grid = {'max_depth': [2], #[13, 14, 15], 
+n_params = 3
+param_grid = {'max_depth': [13, 14, 15], #[13, 14, 15], 
               'eta': [0.025, 0.03, 0.035],
               'silent': [1],
               'objective': ['binary:logistic'],
@@ -74,8 +75,9 @@ param_grid = {'max_depth': [2], #[13, 14, 15],
               'base_score': [0.0058], 
               'colsample_bytree': [0.5, 0.55, 0.6, 0.65]}
 
+# Create param list
 param_list = list(ParameterSampler(param_grid, 
-    n_iter=3, random_state=np.random.randint(10**6)))
+    n_iter=n_params, random_state=np.random.randint(10**6)))
 
 #%% Python files
 # make work directory
@@ -94,11 +96,11 @@ if not os.path.exists(os.path.join(workdir, 'numeric_b1_b7_nf149.hdf')):
 # create .py files
 for param_id, param in enumerate(param_list):
     replace_lines = {
-        23: "sys.path.insert(0, 'bosch_helper')\n", # should be changed when move to cluster
+        23: "sys.path.insert(0, 'bosch_helper')\n",
         28: "param_id = {}\n".format(param_id),
         29: "random_state = {}\n".format(np.random.randint(10**6)),
         30: "param = {}\n".format(param.__repr__()),
-        35: "x = x.iloc[:, :30]\n",  # only in testing
+        35: "\n", #"x = x.iloc[:, :30]\n",  # only in testing
         43: "    num_boost_round={},\n".format(num_boost_round_cv),
         44: "    n_splits={},\n".format(n_splits_cv),
         45: "    n_repeats={},\n".format(n_repeats_cv),
@@ -121,7 +123,7 @@ for param_id, param in enumerate(param_list):
         2: "#SBATCH -p {}\n".format(cluster_hpc),
         3: "#SBATCH -J {}_{}\n".format(task_name_short, param_id),
         4: "#SBATCH -N {}\n".format(node_hpc),
-        5: "#SBATCH -n {}\n".format(threads_hpc),  # only in testing
+        5: "#SBATCH -n {}\n".format(threads_hpc),  
         6: "#SBATCH -C MEM{}\n".format(mem_hpc),
         7: "#SBATCH -t {}-{}:{}:{}\n".format(days_hpc, hours_hpc, minutes_hpc, seconds_hpc),
         8: "#SBATCH -o {}_{}.stdout\n".format(task_name, param_id),
