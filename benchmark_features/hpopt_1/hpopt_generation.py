@@ -132,3 +132,6 @@ for param_id, param in enumerate(param_list):
     dst = os.path.join(rootdir, workdir, '{}_{}.sh'.format(task_name, param_id))
     change_template(src, dst, replace_lines)
     eol_win2unix(dst)
+
+#%% copy run_sbatch.py
+copyfile('run_sbatch.py', os.path.join(workdir, 'run_sbatch.py'))
