@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+Prepare data
+numeric.to_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
 """
 
 import sys
@@ -130,3 +129,6 @@ gc.collect()
 for c in tqdm.tqdm(numeric.columns):
     if numeric[c].dtype==np.float64:
         numeric[c] = numeric[c].astype(np.float16)
+
+numeric.to_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
+y_train.to_hdf('numeric_b1_b7_nf149.hdf', 'y_train')

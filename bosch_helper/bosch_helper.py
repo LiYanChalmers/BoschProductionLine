@@ -20,6 +20,7 @@ import seaborn as sns
 from sys import getsizeof
 import time
 import gc
+import tqdm
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import ParameterGrid
