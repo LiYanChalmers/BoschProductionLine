@@ -45,6 +45,20 @@ num_mcc_points = 2 # 400
 # directory of generated files
 workdir = 'hpop_test_1'
 
+# file names 
+task_name = 'hpopt_test'
+
+# cluster parameters
+project_hpc = 'C3SE2018-1-15' # 'C3SE2018-1-15' or 'C3SE407-15-3'
+cluster_hpc = 'hebbe' # 'hebbe', 'glenn'
+node_hpc = 1
+threads_hpc = 20
+mem_hpc = 128
+days_hpc = 0
+hours_hpc = 8
+minutes_hpc = 0
+seconds_hpc = 0
+
 # XGBoost searching parameters
 param_grid = {'max_depth': [2], #[13, 14, 15], 
               'eta': [0.025, 0.03, 0.035],
@@ -60,9 +74,9 @@ param_grid = {'max_depth': [2], #[13, 14, 15],
               'colsample_bytree': [0.5, 0.55, 0.6, 0.65]}
 
 param_list = list(ParameterSampler(param_grid, 
-    n_iter=100, random_state=np.random.randint(10**6)))
+    n_iter=3, random_state=np.random.randint(10**6)))
 
-#%% 
+#%% Python files
 # make work directory
 rootdir = os.getcwd()
 if not os.path.exists(workdir):
@@ -91,9 +105,30 @@ for param_id, param in enumerate(param_list):
         59: "thresholds = np.linspace(0.01, 0.99, {})\n".format(num_mcc_points),       
         } 
     src = os.path.join(rootdir, 'hpopt_template.py')
-    dst = os.path.join(rootdir, workdir, 'hpopt_test_{}.py'.format(param_id))
+    dst = os.path.join(rootdir, workdir, '{}_{}.py'.format(task_name, param_id))
     change_template(src, dst, replace_lines)
     eol_win2unix(dst)
 
 # copy bosch_helper
 copyfile('../../bosch_helper/bosch_helper.py', os.path.join(workdir, 'bosch_helper.py'))
+
+#%% bash files
+# create .py files
+for param_id, param in enumerate(param_list):
+    replace_lines = {
+        1: "#SBATCH -A {}\n".format(project_hpc), 
+        2: "#SBATCH -p {}\n".format(cluster_hpc),
+        3: "#SBATCH -J {}_{}\n".format(task_name, param_id),
+        4: "#SBATCH -N {}\n".format(node_hpc),
+        5: "#SBATCH -n {}\n".format(threads_hpc),  # only in testing
+        6: "#SBATCH -C MEM{}\n".format(mem_hpc),
+        7: "#SBATCH -t {}-{}:{}:{}\n".format(days_hpc, hours_hpc, minutes_hpc, seconds_hpc),
+        8: "#SBATCH -o {}_{}.stdout\n".format(task_name, param_id),
+        9: "#SBATCH -e {}_{}.stderr\n".format(task_name, param_id),
+        17: "pdcp {}_{}.py $TMPDIR\n".format(task_name, param_id),
+        22: "python {}_{}.py\n".format(task_name, param_id)
+        } 
+    src = os.path.join(rootdir, 'hpopt_template.sh')
+    dst = os.path.join(rootdir, workdir, '{}_{}.sh'.format(task_name, param_id))
+    change_template(src, dst, replace_lines)
+    eol_win2unix(dst)

@@ -4,6 +4,7 @@
 #SBATCH -J hpopt_test_0
 #SBATCH -N 1
 #SBATCH -n 4
+#SBATCH -C MEM128
 #SBATCH -t 00:10:00
 #SBATCH -o hpopt_test_0.stdout
 #SBATCH -e hpopt_test_0.stderr
