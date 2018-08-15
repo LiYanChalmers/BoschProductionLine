@@ -1,0 +1,8 @@
+[0]	train-error:0.00581	test-error:0.005812	train-MCC:0.012254	test-MCC:0.012743
+[1]	train-error:0.00581	test-error:0.005812	train-MCC:0.0126	test-MCC:0.012863
+Repeat 0, split 0, test MCC = 0.013, running time = 0.064 min
+[0]	train-error:0.005812	test-error:0.00581	train-MCC:0.011879	test-MCC:0.010149
+[1]	train-error:0.005812	test-error:0.00581	train-MCC:0.014604	test-MCC:0.013222
+Repeat 0, split 1, test MCC = 0.013, running time = 0.059 min
+[0]	train-error:0.00581	test-error:0.005812	train-MCC:0.010482	test-MCC:0.008702
+[1]	train-error:0.00581	test-error:0.005812	train-MCC:0.01311	test-MCC:0.013173
