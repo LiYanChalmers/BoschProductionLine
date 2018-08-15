@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #SBATCH -A C3SE2018-1-15
 #SBATCH -p hebbe
-#SBATCH -J test_0
+#SBATCH -J hpopt_test_0
 #SBATCH -N 1
 #SBATCH -n 20
 #SBATCH -t 00:10:00
-#SBATCH -o test_0.stdout
-#SBATCH -e test_0.stderr
+#SBATCH -o hpopt_test_0.stdout
+#SBATCH -e hpopt_test_0.stderr
 module purge 
 
 export PATH="/c3se/NOBACKUP/users/lyaa/conda_dir/miniconda/bin:$PATH"
