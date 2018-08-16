@@ -105,7 +105,9 @@ for param_id, param in enumerate(param_list):
         44: "    n_splits={},\n".format(n_splits_cv),
         45: "    n_repeats={},\n".format(n_repeats_cv),
         54: "    num_boost_round={},\n".format(num_boost_round_train),
-        59: "thresholds = np.linspace(0.01, 0.99, {})\n".format(num_mcc_points),       
+        59: "thresholds = np.linspace(0.01, 0.99, {})\n".format(num_mcc_points),
+		 74: "sub.to_csv('{}_{}.csv.gz', compression='gzip')\n".format(task_name, param_id),
+		 79: "save_pickle(results, '{}_{}.pickle')".format(task_name, param_id)
         } 
     src = os.path.join(rootdir, 'hpopt_template.py')
     dst = os.path.join(rootdir, workdir, '{}_{}.py'.format(task_name, param_id))
