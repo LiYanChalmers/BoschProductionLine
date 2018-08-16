@@ -1,0 +1,17 @@
+[0]	train-error:0.00581	test-error:0.005812	train-MCC:0.015363	test-MCC:0.012015
+[1]	train-error:0.00581	test-error:0.005812	train-MCC:0.018742	test-MCC:0.013657
+Repeat 0, split 0, test MCC = 0.014, running time = 0.148 min
+[0]	train-error:0.005812	test-error:0.00581	train-MCC:0.017415	test-MCC:0.012315
+[1]	train-error:0.005812	test-error:0.00581	train-MCC:0.019377	test-MCC:0.014224
+Repeat 0, split 1, test MCC = 0.014, running time = 0.037 min
+[0]	train-error:0.00581	test-error:0.005812	train-MCC:0.015554	test-MCC:0.011145
+[1]	train-error:0.00581	test-error:0.005812	train-MCC:0.018721	test-MCC:0.013651
+Repeat 1, split 0, test MCC = 0.014, running time = 0.032 min
+[0]	train-error:0.005812	test-error:0.00581	train-MCC:0.014967	test-MCC:0.011211
+[1]	train-error:0.005812	test-error:0.00581	train-MCC:0.016935	test-MCC:0.011608
+Repeat 1, split 1, test MCC = 0.012, running time = 0.038 min
+Score mean = 0.013, std = 0.001
+[0]	train-error:0.005811	train-MCC:0.015039
+[1]	train-error:0.005811	train-MCC:0.015267
+Optimal MCC = 0.000
+Optimal threshold = 0.010
