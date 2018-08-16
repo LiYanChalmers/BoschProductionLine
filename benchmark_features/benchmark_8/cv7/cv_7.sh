@@ -15,7 +15,7 @@ source activate kaggle
 
 pdcp sample_submission.csv.zip $TMPDIR
 pdcp numeric_b1_b7_nf149.hdf $TMPDIR
-pdcp time_station.hdf $TMPDIR
+pdcp count_encode.hdf $TMPDIR
 pdcp benchmark_8_numeric_features_CV_7_count_encode.py $TMPDIR
 pdcp bosch_helper.py $TMPDIR
 
