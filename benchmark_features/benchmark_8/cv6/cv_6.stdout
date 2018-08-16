@@ -1,17 +1,54 @@
-[0]	train-error:0.00581	test-error:0.005812	train-MCC:0.015363	test-MCC:0.012015
-[1]	train-error:0.00581	test-error:0.005812	train-MCC:0.018742	test-MCC:0.013657
-Repeat 0, split 0, test MCC = 0.014, running time = 0.148 min
-[0]	train-error:0.005812	test-error:0.00581	train-MCC:0.017415	test-MCC:0.012315
-[1]	train-error:0.005812	test-error:0.00581	train-MCC:0.019377	test-MCC:0.014224
-Repeat 0, split 1, test MCC = 0.014, running time = 0.037 min
-[0]	train-error:0.00581	test-error:0.005812	train-MCC:0.015554	test-MCC:0.011145
-[1]	train-error:0.00581	test-error:0.005812	train-MCC:0.018721	test-MCC:0.013651
-Repeat 1, split 0, test MCC = 0.014, running time = 0.032 min
-[0]	train-error:0.005812	test-error:0.00581	train-MCC:0.014967	test-MCC:0.011211
-[1]	train-error:0.005812	test-error:0.00581	train-MCC:0.016935	test-MCC:0.011608
-Repeat 1, split 1, test MCC = 0.012, running time = 0.038 min
-Score mean = 0.013, std = 0.001
-[0]	train-error:0.005811	train-MCC:0.015039
-[1]	train-error:0.005811	train-MCC:0.015267
-Optimal MCC = 0.000
-Optimal threshold = 0.010
+[0]	train-error:0.005811	test-error:0.005812	train-MCC:0.280552	test-MCC:0.257583
+[1]	train-error:0.005811	test-error:0.005812	train-MCC:0.320367	test-MCC:0.297037
+[2]	train-error:0.005811	test-error:0.005812	train-MCC:0.358065	test-MCC:0.349071
+[3]	train-error:0.005811	test-error:0.005812	train-MCC:0.366669	test-MCC:0.353895
+[4]	train-error:0.005811	test-error:0.005812	train-MCC:0.379391	test-MCC:0.366145
+[5]	train-error:0.005811	test-error:0.005812	train-MCC:0.385562	test-MCC:0.37121
+[6]	train-error:0.005811	test-error:0.005812	train-MCC:0.393509	test-MCC:0.37709
+[7]	train-error:0.005811	test-error:0.005812	train-MCC:0.398193	test-MCC:0.381761
+[8]	train-error:0.005811	test-error:0.005812	train-MCC:0.405394	test-MCC:0.383477
+[9]	train-error:0.005811	test-error:0.005812	train-MCC:0.408599	test-MCC:0.387659
+[10]	train-error:0.005811	test-error:0.005812	train-MCC:0.418281	test-MCC:0.390938
+[11]	train-error:0.005811	test-error:0.005812	train-MCC:0.419705	test-MCC:0.38826
+[12]	train-error:0.00581	test-error:0.005812	train-MCC:0.425851	test-MCC:0.389247
+[13]	train-error:0.00581	test-error:0.005812	train-MCC:0.435268	test-MCC:0.387931
+[14]	train-error:0.00581	test-error:0.005812	train-MCC:0.443212	test-MCC:0.39399
+[15]	train-error:0.00581	test-error:0.005808	train-MCC:0.447066	test-MCC:0.395674
+[16]	train-error:0.00581	test-error:0.005808	train-MCC:0.450733	test-MCC:0.395946
+[17]	train-error:0.00581	test-error:0.005808	train-MCC:0.45427	test-MCC:0.397302
+[18]	train-error:0.005803	test-error:0.005791	train-MCC:0.460688	test-MCC:0.401824
+[19]	train-error:0.005801	test-error:0.005791	train-MCC:0.466552	test-MCC:0.404254
+[20]	train-error:0.005782	test-error:0.005791	train-MCC:0.471034	test-MCC:0.411316
+[21]	train-error:0.005768	test-error:0.005787	train-MCC:0.47526	test-MCC:0.411663
+[22]	train-error:0.005686	test-error:0.005698	train-MCC:0.477022	test-MCC:0.41314
+[23]	train-error:0.005547	test-error:0.005592	train-MCC:0.47757	test-MCC:0.412182
+[24]	train-error:0.005392	test-error:0.005428	train-MCC:0.478835	test-MCC:0.414624
+[25]	train-error:0.005281	test-error:0.005343	train-MCC:0.480887	test-MCC:0.415716
+[26]	train-error:0.005228	test-error:0.005305	train-MCC:0.48328	test-MCC:0.416937
+[27]	train-error:0.005177	test-error:0.005242	train-MCC:0.48667	test-MCC:0.418396
+[28]	train-error:0.005144	test-error:0.005221	train-MCC:0.48725	test-MCC:0.422941
+[29]	train-error:0.00512	test-error:0.005204	train-MCC:0.49086	test-MCC:0.421554
+[30]	train-error:0.005105	test-error:0.005187	train-MCC:0.490866	test-MCC:0.422328
+[31]	train-error:0.00509	test-error:0.005174	train-MCC:0.492521	test-MCC:0.423454
+[32]	train-error:0.005079	test-error:0.005157	train-MCC:0.493647	test-MCC:0.423944
+[33]	train-error:0.005069	test-error:0.005145	train-MCC:0.494378	test-MCC:0.424685
+[34]	train-error:0.005058	test-error:0.005124	train-MCC:0.495132	test-MCC:0.425336
+[35]	train-error:0.005052	test-error:0.005119	train-MCC:0.496496	test-MCC:0.42487
+[36]	train-error:0.005032	test-error:0.005086	train-MCC:0.498552	test-MCC:0.428038
+[37]	train-error:0.004996	test-error:0.005086	train-MCC:0.500581	test-MCC:0.42791
+[38]	train-error:0.004977	test-error:0.005077	train-MCC:0.502086	test-MCC:0.428832
+[39]	train-error:0.004952	test-error:0.005064	train-MCC:0.50342	test-MCC:0.428196
+[40]	train-error:0.004935	test-error:0.005035	train-MCC:0.506429	test-MCC:0.428623
+[41]	train-error:0.004918	test-error:0.005026	train-MCC:0.506395	test-MCC:0.428995
+[42]	train-error:0.004899	test-error:0.005014	train-MCC:0.507987	test-MCC:0.429443
+[43]	train-error:0.00488	test-error:0.005005	train-MCC:0.509707	test-MCC:0.430294
+[44]	train-error:0.004864	test-error:0.005005	train-MCC:0.510104	test-MCC:0.431497
+[45]	train-error:0.004843	test-error:0.004988	train-MCC:0.512009	test-MCC:0.432055
+[46]	train-error:0.004827	test-error:0.004976	train-MCC:0.512815	test-MCC:0.431278
+[47]	train-error:0.004808	test-error:0.00498	train-MCC:0.513942	test-MCC:0.432557
+[48]	train-error:0.004792	test-error:0.00498	train-MCC:0.515431	test-MCC:0.432055
+[49]	train-error:0.004784	test-error:0.004971	train-MCC:0.518034	test-MCC:0.433744
+[50]	train-error:0.00477	test-error:0.004984	train-MCC:0.518494	test-MCC:0.433264
+[51]	train-error:0.004753	test-error:0.004971	train-MCC:0.519793	test-MCC:0.433113
+[52]	train-error:0.004739	test-error:0.004959	train-MCC:0.52078	test-MCC:0.433986
+[53]	train-error:0.004725	test-error:0.00495	train-MCC:0.522843	test-MCC:0.433744
