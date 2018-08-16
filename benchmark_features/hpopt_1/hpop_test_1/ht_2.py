@@ -26,9 +26,9 @@ from bosch_helper import *
 
 
 #%% Set parameter
-param_id = 1
-random_state = 802600
-param = {'subsample': 0.95, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 5.5, 'max_depth': 14, 'lambda': 4.5, 'eta': 0.035, 'colsample_bytree': 0.5, 'booster': 'dart', 'base_score': 0.0058, 'alpha': 0.25}
+param_id = 2
+random_state = 788922
+param = {'subsample': 0.85, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 4.5, 'max_depth': 15, 'lambda': 4.5, 'eta': 0.025, 'colsample_bytree': 0.5, 'booster': 'dart', 'base_score': 0.0058, 'alpha': 0}
 np.random.seed(random_state)
 
 #%% Load data
@@ -72,9 +72,9 @@ y_test_pred_int = (y_test_pred>best_threshold).astype(int)
 
 sub = pd.read_csv("sample_submission.csv.zip", index_col=0)
 sub["Response"] = y_test_pred_int
-sub.to_csv('hpopt_test_1.csv.gz', compression='gzip')
+sub.to_csv('ht_2.csv.gz', compression='gzip')
 
 results['y_test_pred_prob'] = y_test_pred
 results['y_test_pred_int'] = y_test_pred_int
 
-save_pickle(results, 'hpopt_test_1.pickle')
+save_pickle(results, 'ht_2.pickle')

@@ -72,9 +72,9 @@ y_test_pred_int = (y_test_pred>best_threshold).astype(int)
 
 sub = pd.read_csv("sample_submission.csv.zip", index_col=0)
 sub["Response"] = y_test_pred_int
-sub.to_csv('hpopt_test_1.csv.gz', compression='gzip')
+sub.to_csv('ht_1.csv.gz', compression='gzip')
 
 results['y_test_pred_prob'] = y_test_pred
 results['y_test_pred_int'] = y_test_pred_int
 
-save_pickle(results, 'hpopt_test_1.pickle')
+save_pickle(results, 'ht_1.pickle')
