@@ -11,9 +11,9 @@ from bosch_helper import *
 x = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
 y_train = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'y_train')
 
-time_station = pd.read_hdf('time_station.hdf', 'time_station')
+zscore = pd.read_hdf('zscore.hdf', 'zscore')
 
-x = x.join(time_station)
+x = x.join(zscore)
 
 x_train = x.loc['train']
 #x_train = x_train.iloc[:, :30]
@@ -79,6 +79,6 @@ y_test_pred_int = (y_test_pred>best_threshold).astype(int)
 
 sub = pd.read_csv("sample_submission.csv.zip", index_col=0)
 sub["Response"] = y_test_pred_int
-sub.to_csv("benchmark_8_submission_cv_6_station.csv.gz", compression="gzip")
+sub.to_csv("benchmark_8_submission_cv_8_zscore.csv.gz", compression="gzip")
 
-save_pickle(results, 'results_benchmark_8_cv_6_station.pickle')
+save_pickle(results, 'results_benchmark_8_cv_8_zscore.pickle')
