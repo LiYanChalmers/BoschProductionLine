@@ -13,6 +13,11 @@ y_train = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'y_train')
 
 count_encode = pd.read_hdf('count_encode.hdf', 'count_encode')
 
+important_features = pd.read_csv('important_numeric_features.csv', index_col=0, header=None)
+important_features = list(important_features.values.ravel())
+important_features = ['count_encode_'+c for c in important_features]
+count_encode = count_encode[important_features]
+
 x = x.join(count_encode)
 
 x_train = x.loc['train']

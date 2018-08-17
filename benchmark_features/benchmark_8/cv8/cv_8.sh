@@ -13,6 +13,7 @@ module purge
 export PATH="/c3se/NOBACKUP/users/lyaa/conda_dir/miniconda/bin:$PATH"
 source activate kaggle
 
+pdcp important_numeric_features.csv $TMPDIR
 pdcp sample_submission.csv.zip $TMPDIR
 pdcp numeric_b1_b7_nf149.hdf $TMPDIR
 pdcp zscore.hdf $TMPDIR

@@ -13,6 +13,11 @@ y_train = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'y_train')
 
 zscore = pd.read_hdf('zscore.hdf', 'zscore')
 
+important_features = pd.read_csv('important_numeric_features.csv', index_col=0, header=None)
+important_features = list(important_features.values.ravel())
+important_features = ['zscore_'+c for c in important_features]
+zscore = zscore[important_features]
+
 x = x.join(zscore)
 
 x_train = x.loc['train']
