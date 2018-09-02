@@ -86,6 +86,8 @@ param_list = list(ParameterSampler(param_grid,
 
 # data file name
 data_file_name = 'numeric_b1_b8_nf149_1.hdf'
+data_x_field = 'x'
+data_y_field = 'y_train'
 
 #%% Python files
 # make work directory
@@ -108,7 +110,9 @@ for param_id, param in enumerate(param_list):
         28: "param_id = {}\n".format(param_id),
         29: "random_state = {}\n".format(np.random.randint(10**6)),
         30: "param = {}\n".format(param.__repr__()),
+        34: "x = pd.read_hdf('{}', '{}')\n".format(data_file_name, data_x_field),
         35: "\n", #"x = x.iloc[:, :30]\n",  # only in testing
+        36: "y_train = pd.read_hdf('{}', '{}')\n".format(data_file_name, data_y_field),
         43: "    num_boost_round={},\n".format(num_boost_round_cv),
         44: "    n_splits={},\n".format(n_splits_cv),
         45: "    n_repeats={},\n".format(n_repeats_cv),
@@ -138,6 +142,7 @@ for param_id, param in enumerate(param_list):
         7: "#SBATCH -t {}-{}:{}:{}\n".format(days_hpc, hours_hpc, minutes_hpc, seconds_hpc),
         8: "#SBATCH -o {}_{}.stdout\n".format(task_name, param_id),
         9: "#SBATCH -e {}_{}.stderr\n".format(task_name, param_id),
+        16: "pdcp {} $TMPDIR\n".format(data_file_name),
         17: "pdcp {}_{}.py $TMPDIR\n".format(task_name, param_id),
         22: "python {}_{}.py\n".format(task_name, param_id)
         } 
