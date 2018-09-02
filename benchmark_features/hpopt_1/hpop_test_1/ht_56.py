@@ -32,9 +32,9 @@ param = {'subsample': 0.9, 'silent': 1, 'objective': 'binary:logistic', 'nthread
 np.random.seed(random_state)
 
 #%% Load data
-x = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
+x = pd.read_hdf('numeric_b1_b8_nf149_1.hdf', 'x')
 
-y_train = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'y_train')
+y_train = pd.read_hdf('numeric_b1_b8_nf149_1.hdf', 'y_train')
 x_train = x.loc['train']
 x_test = x.loc['test']
 

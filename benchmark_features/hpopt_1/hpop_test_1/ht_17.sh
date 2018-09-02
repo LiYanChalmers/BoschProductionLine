@@ -14,7 +14,7 @@ export PATH="/c3se/NOBACKUP/users/lyaa/conda_dir/miniconda/bin:$PATH"
 source activate kaggle
 
 pdcp sample_submission.csv.zip $TMPDIR
-pdcp numeric_b1_b7_nf149.hdf $TMPDIR
+pdcp numeric_b1_b8_nf149_1.hdf $TMPDIR
 pdcp ht_17.py $TMPDIR
 pdcp bosch_helper.py $TMPDIR
 
