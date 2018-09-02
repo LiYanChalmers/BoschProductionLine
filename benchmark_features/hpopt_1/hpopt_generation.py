@@ -80,7 +80,7 @@ param_list = list(ParameterSampler(param_grid,
     n_iter=n_params, random_state=np.random.randint(10**6)))
 
 # data file name
-data_file_name = 'numeric_b1_b7_nf149.hdf'
+data_file_name = 'numeric_b1_b8_nf149_1.hdf'
 
 #%% Python files
 # make work directory
