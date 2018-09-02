@@ -4,7 +4,12 @@ Generate files
 """
 
 import sys
-sys.path.insert(0, 'C:/Users/home/Desktop/BoschProductionLine/bosch_helper')
+import os
+if os.name=='nt':
+    sys.path.insert(0, 'C:/Users/home/Desktop/BoschProductionLine/bosch_helper')
+elif os.name=='posix':
+    sys.path.insert(0, '/c3se/NOBACKUP/users/lyaa/Hebbe/bosch/bosch_helper')
+    
 from bosch_helper import *
 
 from shutil import copyfile
