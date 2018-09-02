@@ -4,7 +4,7 @@ Generate files
 """
 
 import sys
-sys.path.insert(0, '../../bosch_helper')
+sys.path.insert(0, 'C:/Users/home/Desktop/BoschProductionLine/bosch_helper')
 from bosch_helper import *
 
 from shutil import copyfile
@@ -56,28 +56,31 @@ node_hpc = 1
 threads_hpc = 20
 mem_hpc = 128
 days_hpc = 0
-hours_hpc = 8
+hours_hpc = 16
 minutes_hpc = 0
 seconds_hpc = 0
 
 # XGBoost searching parameters
-n_params = 3
-param_grid = {'max_depth': [13, 14, 15], #[13, 14, 15], 
+n_params = 100
+param_grid = {'max_depth': [13, 14, 15, 16], #[13, 14, 15], 
               'eta': [0.025, 0.03, 0.035],
               'silent': [1],
               'objective': ['binary:logistic'],
               'nthread': [20],
               'lambda': [3.5, 4, 4.5],
-              'alpha': [0, 0.25], 
+              'alpha': [0, 0.1], 
               'subsample': [0.85, 0.9, 0.95],
               'min_child_weight': [4.5, 5, 5.5],
-              'booster': ['gbtree', 'dart'],
+              'booster': ['gbtree'], # 'dart' is time consuming, so not included
               'base_score': [0.0058], 
               'colsample_bytree': [0.5, 0.55, 0.6, 0.65]}
 
 # Create param list
 param_list = list(ParameterSampler(param_grid, 
     n_iter=n_params, random_state=np.random.randint(10**6)))
+
+# data file name
+data_file_name = 'numeric_b1_b7_nf149.hdf'
 
 #%% Python files
 # make work directory
@@ -90,8 +93,8 @@ if not os.path.exists(os.path.join(workdir, 'sample_submission.csv.zip')):
     copyfile('sample_submission.csv.zip', os.path.join(workdir, 'sample_submission.csv.zip'))
 
 # copy hdf
-if not os.path.exists(os.path.join(workdir, 'numeric_b1_b7_nf149.hdf')):
-    copyfile('numeric_b1_b7_nf149.hdf', os.path.join(workdir, 'numeric_b1_b7_nf149.hdf'))
+if not os.path.exists(os.path.join(workdir, data_file_name)):
+    copyfile(data_file_name, os.path.join(workdir, data_file_name))
 
 # create .py files
 for param_id, param in enumerate(param_list):
