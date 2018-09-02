@@ -1,0 +1,11 @@
+pdcp@hebbe22-1: can't stat numeric_b1_b7_nf149.hdf
+/c3se/NOBACKUP/users/lyaa/conda_dir/miniconda/envs/kaggle/lib/python3.7/site-packages/sklearn/utils/__init__.py:4: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated, and in 3.8 it will stop working
+  from collections import Sequence
+Traceback (most recent call last):
+  File "ht_22.py", line 35, in <module>
+    x = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
+  File "/c3se/NOBACKUP/users/lyaa/conda_dir/miniconda/envs/kaggle/lib/python3.7/site-packages/pandas/io/pytables.py", line 371, in read_hdf
+    'File %s does not exist' % path_or_buf)
+FileNotFoundError: File numeric_b1_b7_nf149.hdf does not exist
+cp: cannot stat `*.pickle': No such file or directory
+cp: cannot stat `*.gz': No such file or directory
