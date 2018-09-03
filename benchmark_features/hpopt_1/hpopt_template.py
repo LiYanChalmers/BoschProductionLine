@@ -46,7 +46,7 @@ cv_results, clfs, running_time = \
     n_repeats=2, 
     random_state=np.random.randint(10**6), 
     verbose_eval=True)
-results = {'clfs_cv': clfs, 'results_cv': cv_results, 'running_time_cv': running_time}
+results = {'param': param, 'clfs_cv': clfs, 'results_cv': cv_results, 'running_time_cv': running_time}
 
 #%% Train on model
 dtrain = xgb.DMatrix(x_train, label=y_train)

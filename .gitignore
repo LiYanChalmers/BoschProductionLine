@@ -13,3 +13,5 @@ x_test_numeric_date_*.zip
 x_train_numeric_date_*.zip
 benchmark_features/benchmark_8/*.hdf
 *.hdf
+benchmark_features/hpopt_1/hpop_test_1.zip
+benchmark_features/hpopt_1/hpop_test_1_result_1/
