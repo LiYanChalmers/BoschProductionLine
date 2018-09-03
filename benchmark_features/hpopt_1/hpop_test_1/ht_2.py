@@ -28,13 +28,13 @@ from bosch_helper import *
 #%% Set parameter
 param_id = 2
 random_state = 788922
-param = {'subsample': 0.85, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 4.5, 'max_depth': 15, 'lambda': 4.5, 'eta': 0.025, 'colsample_bytree': 0.5, 'booster': 'dart', 'base_score': 0.0058, 'alpha': 0}
+param = {'subsample': 0.95, 'silent': 1, 'objective': 'binary:logistic', 'nthread': 20, 'min_child_weight': 5, 'max_depth': 16, 'lambda': 3.5, 'eta': 0.025, 'colsample_bytree': 0.6, 'booster': 'gbtree', 'base_score': 0.0058, 'alpha': 0.1}
 np.random.seed(random_state)
 
 #%% Load data
-x = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'numeric')
+x = pd.read_hdf('numeric_b1_b8_nf149_1.hdf', 'x')
 
-y_train = pd.read_hdf('numeric_b1_b7_nf149.hdf', 'y_train')
+y_train = pd.read_hdf('numeric_b1_b8_nf149_1.hdf', 'y_train')
 x_train = x.loc['train']
 x_test = x.loc['test']
 

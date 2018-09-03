@@ -1,0 +1,15 @@
+hebbe32-9: ssh_askpass: exec(/usr/libexec/openssh/gnome-ssh-askpass): No such file or directory
+hebbe32-9: Host key verification failed.
+pdcp@hebbe32-9: hebbe32-9: ssh exited with exit code 255
+hebbe32-9: ssh_askpass: exec(/usr/libexec/openssh/gnome-ssh-askpass): No such file or directory
+hebbe32-9: Host key verification failed.
+pdcp@hebbe32-9: hebbe32-9: ssh exited with exit code 255
+hebbe32-9: ssh_askpass: exec(/usr/libexec/openssh/gnome-ssh-askpass): No such file or directory
+hebbe32-9: Host key verification failed.
+pdcp@hebbe32-9: hebbe32-9: ssh exited with exit code 255
+hebbe32-9: ssh_askpass: exec(/usr/libexec/openssh/gnome-ssh-askpass): No such file or directory
+hebbe32-9: Host key verification failed.
+pdcp@hebbe32-9: hebbe32-9: ssh exited with exit code 255
+(null): can't open file 'ht_63.py': [Errno 2] No such file or directory
+cp: cannot stat `*.pickle': No such file or directory
+cp: cannot stat `*.gz': No such file or directory

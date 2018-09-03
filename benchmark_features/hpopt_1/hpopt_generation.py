@@ -4,7 +4,12 @@ Generate files
 """
 
 import sys
-sys.path.insert(0, '../../bosch_helper')
+import os
+if os.name=='nt':
+    sys.path.insert(0, 'C:/Users/home/Desktop/BoschProductionLine/bosch_helper')
+elif os.name=='posix':
+    sys.path.insert(0, '/c3se/NOBACKUP/users/lyaa/Hebbe/bosch/bosch_helper')
+    
 from bosch_helper import *
 
 from shutil import copyfile
@@ -56,28 +61,33 @@ node_hpc = 1
 threads_hpc = 20
 mem_hpc = 128
 days_hpc = 0
-hours_hpc = 8
+hours_hpc = 16
 minutes_hpc = 0
 seconds_hpc = 0
 
 # XGBoost searching parameters
-n_params = 3
-param_grid = {'max_depth': [13, 14, 15], #[13, 14, 15], 
+n_params = 100
+param_grid = {'max_depth': [13, 14, 15, 16], #[13, 14, 15], 
               'eta': [0.025, 0.03, 0.035],
               'silent': [1],
               'objective': ['binary:logistic'],
               'nthread': [20],
               'lambda': [3.5, 4, 4.5],
-              'alpha': [0, 0.25], 
+              'alpha': [0, 0.1], 
               'subsample': [0.85, 0.9, 0.95],
               'min_child_weight': [4.5, 5, 5.5],
-              'booster': ['gbtree', 'dart'],
+              'booster': ['gbtree'], # 'dart' is time consuming, so not included
               'base_score': [0.0058], 
               'colsample_bytree': [0.5, 0.55, 0.6, 0.65]}
 
 # Create param list
 param_list = list(ParameterSampler(param_grid, 
     n_iter=n_params, random_state=np.random.randint(10**6)))
+
+# data file name
+data_file_name = 'numeric_b1_b8_nf149_1.hdf'
+data_x_field = 'x'
+data_y_field = 'y_train'
 
 #%% Python files
 # make work directory
@@ -90,8 +100,8 @@ if not os.path.exists(os.path.join(workdir, 'sample_submission.csv.zip')):
     copyfile('sample_submission.csv.zip', os.path.join(workdir, 'sample_submission.csv.zip'))
 
 # copy hdf
-if not os.path.exists(os.path.join(workdir, 'numeric_b1_b7_nf149.hdf')):
-    copyfile('numeric_b1_b7_nf149.hdf', os.path.join(workdir, 'numeric_b1_b7_nf149.hdf'))
+if not os.path.exists(os.path.join(workdir, data_file_name)):
+    copyfile(data_file_name, os.path.join(workdir, data_file_name))
 
 # create .py files
 for param_id, param in enumerate(param_list):
@@ -100,7 +110,9 @@ for param_id, param in enumerate(param_list):
         28: "param_id = {}\n".format(param_id),
         29: "random_state = {}\n".format(np.random.randint(10**6)),
         30: "param = {}\n".format(param.__repr__()),
+        34: "x = pd.read_hdf('{}', '{}')\n".format(data_file_name, data_x_field),
         35: "\n", #"x = x.iloc[:, :30]\n",  # only in testing
+        36: "y_train = pd.read_hdf('{}', '{}')\n".format(data_file_name, data_y_field),
         43: "    num_boost_round={},\n".format(num_boost_round_cv),
         44: "    n_splits={},\n".format(n_splits_cv),
         45: "    n_repeats={},\n".format(n_repeats_cv),
@@ -130,6 +142,7 @@ for param_id, param in enumerate(param_list):
         7: "#SBATCH -t {}-{}:{}:{}\n".format(days_hpc, hours_hpc, minutes_hpc, seconds_hpc),
         8: "#SBATCH -o {}_{}.stdout\n".format(task_name, param_id),
         9: "#SBATCH -e {}_{}.stderr\n".format(task_name, param_id),
+        16: "pdcp {} $TMPDIR\n".format(data_file_name),
         17: "pdcp {}_{}.py $TMPDIR\n".format(task_name, param_id),
         22: "python {}_{}.py\n".format(task_name, param_id)
         } 
